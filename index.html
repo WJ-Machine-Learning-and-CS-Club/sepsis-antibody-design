@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Molecule Viewer</title>
+    <script src="https://3Dmol.csb.pitt.edu/build/3Dmol-min.js"></script>
+    <style>
+        #viewer { width: 100%; height: 500px; }
+    </style>
+</head>
+<body>
+    <h1>3D Molecule Viewer</h1>
+    <div id="viewer"></div>
+    
+    <script>
+        // Initialize the viewer with a black background
+        let viewer = $3Dmol.createViewer("viewer", { backgroundColor: "black" });
+
+        // Load the model with specific highlights and labels
+        fetch("static/pdb_files/anti-SPA-1H12.pdb")
+            .then(response => response.text())
+            .then(data => {
+                viewer.addModel(data, "pdb");  // Load the PDB data
+
+                // Apply cartoon style with orchid color and set opacity to Chain A and Chain B
+                viewer.setStyle({ chain: "A" }, { cartoon: { color: 'violet', opacity: 0.7 } });
+                viewer.setStyle({ chain: "B" }, { cartoon: { color: 'violet', opacity: 0.7 } });
+
+                // Highlight specific Chain A regions in cyan
+                viewer.setStyle({ chain: "A", resi: [50, 51, 52, 53, 54, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131] }, { cartoon: { color: "cyan", opacity: 0.9 } });
+                
+                // Highlight specific Chain B regions in cyan
+                viewer.setStyle({ chain: "B", resi: [44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 76, 77, 78, 79, 80, 81, 82, 115, 116, 117, 118, 119, 120, 121, 122] }, { cartoon: { color: "cyan", opacity: 0.9 } });
+
+                // Add labels for specific regions in Chain B
+                viewer.addLabel("CDR1 44-60", { position: { resi: 52, chain: "B", atom: "CA" }, fontColor: "white", backgroundColor: "black" });
+                viewer.addLabel("CDR2 76-82", { position: { resi: 79, chain: "B", atom: "CA" }, fontColor: "white", backgroundColor: "black" });
+                viewer.addLabel("CDR3 115-122", { position: { resi: 118, chain: "B", atom: "CA" }, fontColor: "white", backgroundColor: "black" });
+
+                // Zoom to fit all models and render the scene
+                viewer.zoomTo();
+                viewer.render();
+            })
+            .catch(error => console.error("Error loading PDB file:", error));
+    </script>
+</body>
+</html>
+
