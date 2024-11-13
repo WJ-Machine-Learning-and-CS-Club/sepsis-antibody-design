@@ -1,49 +1,354 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Molecule Viewer</title>
-    <script src="https://3Dmol.csb.pitt.edu/build/3Dmol-min.js"></script>
+    <title>Sepsis Precision Antibody Binding</title>
     <style>
-        #viewer { width: 100%; height: 500px; }
+        body {
+            background-color: #000;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 1em;
+            font-family: Arial, sans-serif;
+        }
+
+        thead tr {
+            background-color: #333;
+            color: #ffffff;
+            text-align: left;
+        }
+
+        th,
+        td {
+            padding: 12px 15px;
+            border: 1px solid #dddddd;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: #e0e0e0;
+        }
+
+        tbody tr:hover {
+            background-color: #ddd;
+        }
+
+        tbody td {
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1,
+        h2 {
+            color: #ffffff;
+        }
+
+        .highlight {
+            color: red;
+        }
+
+        .toc a {
+            color: #cccccc;
+            text-decoration: none;
+            display: block;
+            margin: 8px 0;
+        }
+
+        .toc a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .caption {
+            font-size: 0.9em;
+            color: #cccccc;
+            text-align: center;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .viewer {
+            width: 800px;
+            height: 800px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #000;
+            position: relative;
+            z-index: 10;
+        }
+
+        #author-info {
+            font-size: 0.9em;
+            color: #cccccc;
+            margin-top: 10px;
+        }
+
+        #works-cited {
+            margin-top: 40px;
+        }
     </style>
 </head>
+
 <body>
-    <h1>3D Molecule Viewer</h1>
-    <div id="viewer"></div>
-    
+    <div class="container">
+        <h1>Precision Antibody Engineering for Sepsis</h1>
+
+        <!-- Author Information -->
+        <div id="author-info">
+            <p><strong>Joseph Yun<sup>1,2,3,*</sup>, Gocke Onal<sup>3</sup>, Theo Averbeck<sup>3</sup>, Issac
+                    Kirtz<sup>3</sup></strong></p>
+            <p><sup>1</sup>School of Nursing, Johns Hopkins University, Baltimore, Maryland, USA</p>
+            <p><sup>2</sup>Predictiv Care Inc., Mountain View, California, USA</p>
+            <p><sup>3</sup>Walter Johnson High School, Bethesda, Maryland, USA</p>
+            <p><sup>*</sup>To whom correspondence should be addressed.</p>
+            <p><strong>Email:</strong> <a href="mailto:jyun21@jh.edu" style="color: #cccccc;">jyun21@jh.edu</a></p>
+        </div>
+
+        <!-- Table of Contents -->
+        <h2>Table of Contents</h2>
+        <div class="toc">
+            <a href="#spa-structure">Structure of SPA (P02976)</a>
+            <a href="#antibody-generation">Antibody Generation</a>
+            <a href="#initial-sequences">Initial Protein Sequences for Heavy and Light Chains</a>
+            <a href="#gscript">Antibody Sequence Generation using Gscript</a>
+            <a href="#docking-results">Molecular Docking Results</a>
+            <a href="#alphafold-prediction">Alphafold2 Prediction of Modified Sequence 4</a>
+            <a href="#highest-docking-model">Highest Scoring Docking Model</a>
+            <a href="#full-constructed-antibody">Full Constructed Antibody</a>
+            <a href="#final-docking-validation">Final Docking Validation with Gramm-X</a>
+            <a href="#works-cited">Works Cited</a>
+        </div>
+
+        <!-- Main Content Sections with Anchors for TOC -->
+        <h2 id="spa-structure">Structure of SPA (P02976)</h2>
+        <p>Specific receptor we are targeting in the S. Aureus.</p>
+        <div id="jsmolViewer1" class="viewer"></div>
+        <p class="caption">P02976 receptor from Uniprot</p>
+
+        <h2 id="antibody-generation">Antibody Generation</h2>
+        <p>Complementarity-Determining Region(CDR) region identification. Using AI algorithms such as DeepAB, binding
+            pockets of antibodies are identified.</p>
+        <div id="jsmolViewer2" class="viewer"></div>
+        <p class="caption">Our chosen reference antibody anti-SPA-1H12 with binding regions highlighted in cyan. Structure was predicted
+            using Alphafold2.</p>
+
+        <h2 id="initial-sequences">Initial Protein Sequences for Heavy and Light Chains (anti-SPA-1H12 Antibody)<sup><a
+                    href="#ref1">1</a></sup></h2>
+        <p><strong>Heavy Chain:</strong></p>
+        <p class="sequence">
+            MELGFSWVFLVTLLNGIQCEVKLVESGGGLVQPGGSLRLSCATSGFTFT<span class="highlight">DYYMS</span>WVRQPPGKALEWL
+            <span class="highlight">GFIRNKANGYTTEYSASVK</span>GRFTISRDNSQSILYLQMNTLRAEDSATYYCAR
+            <span class="highlight">DNGDYDYERF</span>AYWGQGTLVTV
+        </p>
+
+        <p><strong>Light Chain:</strong></p>
+        <p class="sequence">
+            MDSQAQVLILLLLWVSGTCGDIVMSQSPSSLAVSAGEKVTMS<span class="highlight">CKSSQSLLKSRTRRNYLA</span>WYQQKPGQSPKLLIY
+            <span class="highlight">WASTRES</span>GVPDRFTGSGSGTDFTLTISSVQAEDLAIYYC
+            <span class="highlight">KQSYNLR</span>TFGGGPKLEIKR
+        </p>
+        <p class="caption">Red sequences are CDR regions</p>
+
+        <h2 id="gscript">Antibody Sequence Generation using Gscript</h2>
+        <p>Generated antibody sequences were produced with Gscript, providing various modified sequences for docking
+            analysis.</p>
+        <img src="path/to/your/gscript-code-image.png" alt="Gscript Code with Comments" class="gscript-image">
+
+        <h2 id="docking-results">Molecular Docking Results</h2>
+        <p>Simulated binding scores of modified antibodies to receptor P02976, using Gramm-X. Lower scores indicate
+            better binding affinity.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Total Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Unmodified to P02976</td>
+                    <td>19804.082</td>
+                </tr>
+                <tr>
+                    <td>Modified 1 to P02976</td>
+                    <td>28469.077</td>
+                </tr>
+                <tr>
+                    <td>Modified 2 to P02976</td>
+                    <td>27099.837</td>
+                </tr>
+                <tr>
+                    <td>Modified 3 to P02976</td>
+                    <td>25002.514</td>
+                </tr>
+                <tr>
+                    <td>Modified 4 to P02976</td>
+                    <td>15154.461</td>
+                </tr>
+                <tr>
+                    <td>Modified 5 to P02976</td>
+                    <td>38891.241</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="caption">Scores calculated using Rosetta software; lower scores indicate stronger bond interactions and higher
+            stability.</p>
+
+        <h2 id="alphafold-prediction">Alphafold2 Prediction of Modified Sequence 4</h2>
+        <p>Highest affinity binding sequence</p>
+        <div id="jsmolViewer3" class="viewer"></div>
+        <p class="caption">Structural prediction of modified anti-SPA-1H12 sequence 4, with heavy and light chains highlighted in yellow
+            and purple, respectively.</p>
+
+        <h2 id="highest-docking-model">Highest Scoring Docking Model</h2>
+        <div id="jsmolViewer4" class="viewer"></div>
+        <p class="caption">Modified antibody 4 (purple) and receptor P02976 (Cyan)</p>
+
+        <h2 id="full-constructed-antibody">Full Constructed Antibody</h2>
+        <div id="jsmolViewer5" class="viewer"></div>
+        <p class="caption">Full antibody structure showing the Fc region in purple, heavy chain in orange, light chain in gray, and CDR
+            regions in cyan.</p>
+
+        <h2 id="final-docking-validation">Final Docking Validation with Gramm-X</h2>
+        <div id="jsmolViewer6" class="viewer"></div>
+        <p class="caption">Custom antibody binding with P02976. (Yellow is P02976, Purple is antibody)</p>
+
+        <!-- Works Cited Section -->
+        <div id="works-cited">
+            <h2>Works Cited:</h2>
+            <ol>
+                <li id="ref1">Feijo G, Sabbagat J, Carneiro C, Brigido M. Variable region structure and Staphylococcal
+                    protein A binding specificity of a mouse monoclonal IgM anti-laminin-receptor antibody. Immunology.
+                    1997;91:479-485. Accessed November 11, 2024. <a
+                        href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1364020/pdf/immunology00056-0159.pdf"
+                        target="_blank">https://pmc.ncbi.nlm.nih.gov/articles/PMC1364020/pdf/immunology00056-0159.pdf</a>
+                </li>
+
+                <li><strong>AlphaFold2</strong>. AlphaFold2. Version 2. DeepMind Technologies; 2021. Available from: <a
+                        href="https://github.com/deepmind/alphafold"
+                        target="_blank">https://github.com/deepmind/alphafold</a>. Accessed November 11, 2024.</li>
+
+                <li><strong>GRAMM-X</strong>. GRAMM-X Protein-Protein Docking Web Server. Vakser Laboratory, University
+                    of
+                    Kansas. Available from: <a href="http://vakser.compbio.ku.edu/resources/gramm/"
+                        target="_blank">http://vakser.compbio.ku.edu/resources/gramm/</a>. Accessed November 11, 2024.
+                </li>
+
+                <li><strong>PyMOL</strong>. PyMOL Molecular Graphics System. Version 2.5. Schrödinger, LLC; 2021.
+                    Available
+                    from: <a href="https://pymol.org/2/" target="_blank">https://pymol.org/2/</a>. Accessed November 11,
+                    2024.</li>
+
+                <li><strong>Rosetta</strong>. Rosetta Protein Modeling Suite. RosettaCommons; Year. Available from: <a
+                        href="https://www.rosettacommons.org/" target="_blank">https://www.rosettacommons.org/</a>.
+                    Accessed
+                    November 11, 2024.</li>
+
+                <li><strong>Chimera</strong>. UCSF Chimera. Version 1.16. Resource for Biocomputing, Visualization, and
+                    Informatics, University of California, San Francisco; 2021. Available from: <a
+                        href="https://www.cgl.ucsf.edu/chimera/" target="_blank">https://www.cgl.ucsf.edu/chimera/</a>.
+                    Accessed November 11, 2024.</li>
+
+                <li><strong>UniProt</strong>. UniProt: The Universal Protein Knowledgebase. UniProt Consortium; 2024.
+                    Available from: <a href="https://www.uniprot.org/" target="_blank">https://www.uniprot.org/</a>.
+                    Accessed November 11, 2024.</li>
+
+                <li><strong>PDB (Protein Data Bank)</strong>. Protein Data Bank. Research Collaboratory for Structural
+                    Bioinformatics (RCSB); 2024. Available from: <a href="https://www.rcsb.org/"
+                        target="_blank">https://www.rcsb.org/</a>. Accessed November 11, 2024.</li>
+
+                <li><strong>PubMed</strong>. National Center for Biotechnology Information, U.S. National Library of
+                    Medicine; 2024. Available from: <a href="https://pubmed.ncbi.nlm.nih.gov/"
+                        target="_blank">https://pubmed.ncbi.nlm.nih.gov/</a>. Accessed November 11, 2024.</li>
+
+                <li><strong>ExPASy ABCD Database</strong>. ABCD: Antibody Database, ExPASy. SIB Swiss Institute of
+                    Bioinformatics; 2024. Available from: <a href="https://web.expasy.org/cgi-bin/abcd/search"
+                        target="_blank">https://web.expasy.org/cgi-bin/abcd/search</a>. Accessed November 11, 2024.</li>
+            </ol>
+        </div>
+    </div>
+    <script src="https://chemapps.stolaf.edu/jmol/jsmol/JSmol.min.js"></script>
     <script>
-        // Initialize the viewer with a black background
-        let viewer = $3Dmol.createViewer("viewer", { backgroundColor: "black" });
+        const jmolInfo = {
+            use: "HTML5",
+            j2sPath: "https://chemapps.stolaf.edu/jmol/jsmol/j2s",
+            script: "background black;",
+            height: "800",
+            width: "800",
+            disableJ2SLoadMonitor: true,
+            disableInitialConsole: true,
+            allowJavaScript: false,
+        };
 
-        // Load the model with specific highlights and labels
-        fetch("static/pdb_files/anti-SPA-1H12.pdb")
-            .then(response => response.text())
-            .then(data => {
-                viewer.addModel(data, "pdb");  // Load the PDB data
+        function loadJSmolViewer(divId, pdbFile, customScript) {
+            const viewerInfo = {
+                ...jmolInfo,
+                script: `load ${pdbFile}; ${customScript} background black;`
+            };
 
-                // Apply cartoon style with orchid color and set opacity to Chain A and Chain B
-                viewer.setStyle({ chain: "A" }, { cartoon: { color: 'violet', opacity: 0.7 } });
-                viewer.setStyle({ chain: "B" }, { cartoon: { color: 'violet', opacity: 0.7 } });
+            // Set the HTML for the viewer directly in the specified div
+            document.getElementById(divId).innerHTML = Jmol.getAppletHtml(divId, viewerInfo);
+        }
 
-                // Highlight specific Chain A regions in cyan
-                viewer.setStyle({ chain: "A", resi: [50, 51, 52, 53, 54, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131] }, { cartoon: { color: "cyan", opacity: 0.9 } });
-                
-                // Highlight specific Chain B regions in cyan
-                viewer.setStyle({ chain: "B", resi: [44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 76, 77, 78, 79, 80, 81, 82, 115, 116, 117, 118, 119, 120, 121, 122] }, { cartoon: { color: "cyan", opacity: 0.9 } });
-
-                // Add labels for specific regions in Chain B
-                viewer.addLabel("CDR1 44-60", { position: { resi: 52, chain: "B", atom: "CA" }, fontColor: "white", backgroundColor: "black" });
-                viewer.addLabel("CDR2 76-82", { position: { resi: 79, chain: "B", atom: "CA" }, fontColor: "white", backgroundColor: "black" });
-                viewer.addLabel("CDR3 115-122", { position: { resi: 118, chain: "B", atom: "CA" }, fontColor: "white", backgroundColor: "black" });
-
-                // Zoom to fit all models and render the scene
-                viewer.zoomTo();
-                viewer.render();
-            })
-            .catch(error => console.error("Error loading PDB file:", error));
+        // Load each viewer with the appropriate PDB file and custom styling
+        loadJSmolViewer("jsmolViewer1", "static/pdb_files/SPA_P02976.pdb", "select protein; cartoon only; color cyan;");
+        loadJSmolViewer("jsmolViewer2", "static/pdb_files/anti-SPA-1H12.pdb", `
+            select :A; cartoon only; color magenta;
+            select :B; cartoon only; color magenta;
+            select :A and 50-54; color cyan;
+            select :A and 69-87; color cyan;
+            select :A and 120-131; color cyan;
+            select :B and 44-60; color cyan;
+            select :B and 76-82; color cyan;
+            select :B and 115-122; color cyan;
+        `);
+        loadJSmolViewer("jsmolViewer3", "static/pdb_files/modified_4_anti-SPA-1H12.pdb", `
+            select :A; cartoon only; color yellow;
+            select :B; cartoon only; color purple;
+        `);
+        loadJSmolViewer("jsmolViewer4", "static/pdb_files/SPA_P02976_modified_4_anti-SPA-1H12.pdb", `
+            select :A; cartoon only; color cyan;
+            select :C; cartoon only; color magenta;
+            select :D; cartoon only; color magenta;
+        `);
+        loadJSmolViewer("jsmolViewer5", "static/pdb_files/anti-SPA-1H12_5fii.pdb", `
+            select :A; cartoon only; color purple;
+            select :B; cartoon only; color purple;
+            select :C; cartoon only; color orange;
+            select :H; cartoon only; color orange;
+            select :D; cartoon only; color gray;
+            select :L; cartoon only; color gray;
+            select (:C or :H) and 50-54; color cyan;
+            select (:C or :H) and 69-87; color cyan;
+            select (:C or :H) and 120-131; color cyan;
+            select (:D or :L) and 44-60; color cyan;
+            select (:D or :L) and 76-82; color cyan;
+            select (:D or :L) and 115-122; color cyan;
+        `);
+        loadJSmolViewer("jsmolViewer6", "static/pdb_files/modified_4_anti-SPA-1H12_5jii.pdb", `
+            select :A; cartoon only; color yellow;
+            select :C or :D or :E or :F or :G or :H; cartoon only; color purple;
+        `);
     </script>
 </body>
-</html>
 
+</html>
