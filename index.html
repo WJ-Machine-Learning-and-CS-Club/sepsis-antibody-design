@@ -302,7 +302,7 @@
         function loadJSmolViewer(divId, pdbFile, customScript) {
             const viewerInfo = {
                 ...jmolInfo,
-                script: `load ${pdbFile}; ${customScript} background black;`
+                script: `load ${pdbFile}; ${customScript} background black; spin on;`
             };
 
             // Set the HTML for the viewer directly in the specified div
