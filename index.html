@@ -116,7 +116,7 @@
             <p><strong>Joseph Yun<sup>1,2,3,*</sup>, Gocke Onal<sup>3</sup>, Theo Averbeck<sup>3</sup>, Issac
                     Kirtz<sup>3</sup></strong></p>
             <p><sup>1</sup>School of Nursing, Johns Hopkins University, Baltimore, Maryland, USA</p>
-            <p><sup>2</sup>Predictiv Care Inc., Mountain View, California, USA</p>
+            <p><sup>2</sup>Easy Insights Inc., Bethesda, Maryland, USA</p>
             <p><sup>3</sup>Walter Johnson High School, Bethesda, Maryland, USA</p>
             <p><sup>*</sup>To whom correspondence should be addressed.</p>
             <p><strong>Email:</strong> <a href="mailto:jyun21@jh.edu" style="color: #cccccc;">jyun21@jh.edu</a></p>
@@ -125,6 +125,8 @@
         <!-- Table of Contents -->
         <h2>Table of Contents</h2>
         <div class="toc">
+            <a href="#thesis">Thesis</a>
+            <a href="#abstract">Abstract</a>
             <a href="#spa-structure">Structure of SPA (P02976)</a>
             <a href="#antibody-generation">Antibody Generation</a>
             <a href="#initial-sequences">Initial Protein Sequences for Heavy and Light Chains</a>
@@ -137,7 +139,28 @@
             <a href="#works-cited">Works Cited</a>
         </div>
 
-        <!-- Main Content Sections with Anchors for TOC -->
+        <h2 id="thesis">Thesis</h2>
+        <p>This research explores the potential of computational antibody engineering to revolutionize sepsis
+            diagnostics and immunotherapy by creating high-affinity antibodies. Tailored for specific variants of
+            Protein A, such as P02976 from <em>Staphylococcus aureus</em>, these antibodies are optimized for both rapid
+            diagnostic use and immune-targeted therapies, offering a flexible solution to address critical needs in
+            sepsis care.</p>
+
+        <h2 id="abstract">Abstract</h2>
+        <p>Sepsis, which causes nearly 10 million deaths annually<sup><a href="#ref10"
+                    style="color: #cccccc; text-decoration: none;">[10]</a></sup> and is responsible for one in three
+            hospital fatalities<sup><a href="#ref11" style="color: #cccccc; text-decoration: none;">[11]</a></sup>,
+            demands rapid diagnostics and effective immune responses. This study leverages the latest AI and
+            biomolecular tools, including AlphaFold2<sup><a href="#ref2"
+                    style="color: #cccccc; text-decoration: none;">[2]</a></sup> and Rosetta<sup><a href="#ref5"
+                    style="color: #cccccc; text-decoration: none;">[5]</a></sup>, to design high-affinity antibodies
+            optimized for the P02976 variant of SPA, an immune-evasive protein in <em>Staphylococcus aureus</em>. By
+            fine-tuning the Fab region for high specificity to this variant, the engineered antibodies serve dual
+            purposes: enabling rapid detection through LFAs and enhancing immune response for potential vaccine
+            applications. This work highlights antibody engineering’s role in advancing sepsis care, offering adaptable
+            solutions for both diagnostics and immunotherapy that can be precisely tuned to different SPA variants and
+            other Sepsis inducing bacteria.</p>
+
         <h2 id="spa-structure">Structure of S. aureus Protein A(SPA P02976)</h2>
         <p>Specific receptor we are targeting in the S. Aureus.</p>
         <div id="jsmolViewer1" class="viewer"></div>
@@ -147,11 +170,12 @@
         <p>Complementarity-Determining Region(CDR) region identification. Using AI algorithms such as DeepAB, binding
             pockets of antibodies are identified.</p>
         <div id="jsmolViewer2" class="viewer"></div>
-        <p class="caption">Our chosen reference antibody anti-SPA-1H12 with binding regions highlighted in cyan. Structure was predicted
+        <p class="caption">Our chosen reference antibody anti-SPA-1H12 with binding regions highlighted in cyan.
+            Structure was predicted
             using Alphafold2.</p>
 
         <h2 id="initial-sequences">Initial Protein Sequences for Heavy and Light Chains (anti-SPA-1H12 Antibody)<sup><a
-                    href="#ref1">1</a></sup></h2>
+                    href="#ref1" style="color: #cccccc; text-decoration: none;">[1]</a></sup></h2>
         <p><strong>Heavy Chain:</strong></p>
         <p class="sequence">
             MELGFSWVFLVTLLNGIQCEVKLVESGGGLVQPGGSLRLSCATSGFTFT<span class="highlight">DYYMS</span>WVRQPPGKALEWL
@@ -171,6 +195,13 @@
         <p>Generated antibody sequences were produced with Gscript, providing various modified sequences for docking
             analysis.</p>
         <img src="path/to/your/gscript-code-image.png" alt="Gscript Code with Comments" class="gscript-image">
+
+        <h2 id="alphafold-prediction">Alphafold2 Prediction of Modified Sequence 4</h2>
+        <p>Highest affinity binding sequence</p>
+        <div id="jsmolViewer3" class="viewer"></div>
+        <p class="caption">Structural prediction of modified anti-SPA-1H12 sequence 4, with heavy and light chains
+            highlighted in yellow
+            and purple, respectively.</p>
 
         <h2 id="docking-results">Molecular Docking Results</h2>
         <p>Simulated binding scores of modified antibodies to receptor P02976, using Gramm-X. Lower scores indicate
@@ -210,14 +241,9 @@
                 </tr>
             </tbody>
         </table>
-        <p class="caption">Scores calculated using Rosetta software; lower scores indicate stronger bond interactions and higher
+        <p class="caption">Scores calculated using Rosetta software; lower scores indicate stronger bond interactions
+            and higher
             stability.</p>
-
-        <h2 id="alphafold-prediction">Alphafold2 Prediction of Modified Sequence 4</h2>
-        <p>Highest affinity binding sequence</p>
-        <div id="jsmolViewer3" class="viewer"></div>
-        <p class="caption">Structural prediction of modified anti-SPA-1H12 sequence 4, with heavy and light chains highlighted in yellow
-            and purple, respectively.</p>
 
         <h2 id="highest-docking-model">Highest Scoring Docking Model</h2>
         <div id="jsmolViewer4" class="viewer"></div>
@@ -225,7 +251,8 @@
 
         <h2 id="full-constructed-antibody">Full Constructed Antibody</h2>
         <div id="jsmolViewer5" class="viewer"></div>
-        <p class="caption">Full antibody structure showing the Fc region in purple, heavy chain in orange, light chain in gray, and CDR
+        <p class="caption">Full antibody structure showing the Fc region in purple, heavy chain in orange, light chain
+            in gray, and CDR
             regions in cyan.</p>
 
         <h2 id="final-docking-validation">Final Docking Validation with Gramm-X</h2>
@@ -243,46 +270,50 @@
                         target="_blank">https://pmc.ncbi.nlm.nih.gov/articles/PMC1364020/pdf/immunology00056-0159.pdf</a>
                 </li>
 
-                <li><strong>AlphaFold2</strong>. AlphaFold2. Version 2. DeepMind Technologies; 2021. Available from: <a
-                        href="https://github.com/deepmind/alphafold"
+                <li id="ref2"><strong>AlphaFold2</strong>. AlphaFold2. Version 2. DeepMind Technologies; 2021. Available
+                    from: <a href="https://github.com/deepmind/alphafold"
                         target="_blank">https://github.com/deepmind/alphafold</a>. Accessed November 11, 2024.</li>
 
-                <li><strong>GRAMM-X</strong>. GRAMM-X Protein-Protein Docking Web Server. Vakser Laboratory, University
-                    of
-                    Kansas. Available from: <a href="http://vakser.compbio.ku.edu/resources/gramm/"
+                <li id="ref3"><strong>GRAMM-X</strong>. GRAMM-X Protein-Protein Docking Web Server. Vakser Laboratory,
+                    University of Kansas. Available from: <a href="http://vakser.compbio.ku.edu/resources/gramm/"
                         target="_blank">http://vakser.compbio.ku.edu/resources/gramm/</a>. Accessed November 11, 2024.
                 </li>
 
-                <li><strong>PyMOL</strong>. PyMOL Molecular Graphics System. Version 2.5. Schrödinger, LLC; 2021.
-                    Available
-                    from: <a href="https://pymol.org/2/" target="_blank">https://pymol.org/2/</a>. Accessed November 11,
-                    2024.</li>
+                <li id="ref4"><strong>PyMOL</strong>. PyMOL Molecular Graphics System. Version 2.5. Schrödinger, LLC;
+                    2021. Available from: <a href="https://pymol.org/2/" target="_blank">https://pymol.org/2/</a>.
+                    Accessed November 11, 2024.</li>
 
-                <li><strong>Rosetta</strong>. Rosetta Protein Modeling Suite. RosettaCommons; Year. Available from: <a
-                        href="https://www.rosettacommons.org/" target="_blank">https://www.rosettacommons.org/</a>.
-                    Accessed
-                    November 11, 2024.</li>
+                <li id="ref5"><strong>Rosetta</strong>. Rosetta Protein Modeling Suite. RosettaCommons; Year. Available
+                    from: <a href="https://www.rosettacommons.org/" target="_blank">https://www.rosettacommons.org/</a>.
+                    Accessed November 11, 2024.</li>
 
-                <li><strong>Chimera</strong>. UCSF Chimera. Version 1.16. Resource for Biocomputing, Visualization, and
-                    Informatics, University of California, San Francisco; 2021. Available from: <a
+                <li id="ref6"><strong>Chimera</strong>. UCSF Chimera. Version 1.16. Resource for Biocomputing,
+                    Visualization, and Informatics, University of California, San Francisco; 2021. Available from: <a
                         href="https://www.cgl.ucsf.edu/chimera/" target="_blank">https://www.cgl.ucsf.edu/chimera/</a>.
                     Accessed November 11, 2024.</li>
 
-                <li><strong>UniProt</strong>. UniProt: The Universal Protein Knowledgebase. UniProt Consortium; 2024.
-                    Available from: <a href="https://www.uniprot.org/" target="_blank">https://www.uniprot.org/</a>.
-                    Accessed November 11, 2024.</li>
+                <li id="ref7"><strong>UniProt</strong>. UniProt: The Universal Protein Knowledgebase. UniProt
+                    Consortium; 2024. Available from: <a href="https://www.uniprot.org/"
+                        target="_blank">https://www.uniprot.org/</a>. Accessed November 11, 2024.</li>
 
-                <li><strong>PDB (Protein Data Bank)</strong>. Protein Data Bank. Research Collaboratory for Structural
-                    Bioinformatics (RCSB); 2024. Available from: <a href="https://www.rcsb.org/"
+                <li id="ref8"><strong>PDB (Protein Data Bank)</strong>. Protein Data Bank. Research Collaboratory for
+                    Structural Bioinformatics (RCSB); 2024. Available from: <a href="https://www.rcsb.org/"
                         target="_blank">https://www.rcsb.org/</a>. Accessed November 11, 2024.</li>
 
-                <li><strong>PubMed</strong>. National Center for Biotechnology Information, U.S. National Library of
-                    Medicine; 2024. Available from: <a href="https://pubmed.ncbi.nlm.nih.gov/"
+                <li id="ref9"><strong>PubMed</strong>. National Center for Biotechnology Information, U.S. National
+                    Library of Medicine; 2024. Available from: <a href="https://pubmed.ncbi.nlm.nih.gov/"
                         target="_blank">https://pubmed.ncbi.nlm.nih.gov/</a>. Accessed November 11, 2024.</li>
 
-                <li><strong>ExPASy ABCD Database</strong>. ABCD: Antibody Database, ExPASy. SIB Swiss Institute of
-                    Bioinformatics; 2024. Available from: <a href="https://web.expasy.org/cgi-bin/abcd/search"
-                        target="_blank">https://web.expasy.org/cgi-bin/abcd/search</a>. Accessed November 11, 2024.</li>
+                <li id="ref10">World Health Organization. Sepsis Fact Sheet. Available from: <a
+                        href="https://www.who.int/news-room/fact-sheets/detail/sepsis"
+                        target="_blank">https://www.who.int/news-room/fact-sheets/detail/sepsis</a>. Accessed November
+                    13, 2024.</li>
+
+                <li id="ref11">Centers for Disease Control and Prevention. CDC News Release: Sepsis Patients and
+                    Hospital Fatalities. Available from: <a
+                        href="https://www.cdc.gov/media/releases/2023/s0824-sepsis-patients.html"
+                        target="_blank">https://www.cdc.gov/media/releases/2023/s0824-sepsis-patients.html</a>. Accessed
+                    November 13, 2024.</li>
             </ol>
         </div>
     </div>
@@ -296,7 +327,7 @@
             width: "800",
             disableJ2SLoadMonitor: true,
             disableInitialConsole: true,
-            allowJavaScript: false,
+            allowJavaScript: false
         };
 
         function loadJSmolViewer(divId, pdbFile, customScript) {
@@ -344,7 +375,7 @@
             select (:D or :L) and 76-82; color cyan;
             select (:D or :L) and 115-122; color cyan;
         `);
-        loadJSmolViewer("jsmolViewer6", "static/pdb_files/modified_4_anti-SPA-1H12_5jii.pdb", `
+        loadJSmolViewer("jsmolViewer6", "static/pdb_files/modified_4_anti-SPA-1H12_5jii_model_4.pdb", `
             select :A; cartoon only; color yellow;
             select :C or :D or :E or :F or :G or :H; cartoon only; color purple;
         `);
