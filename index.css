@@ -78,14 +78,19 @@ h2 {
 }
 
 .viewer {
-    width: 800px;
-    height: 800px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #000;
-    position: relative;
-    z-index: 10;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    aspect-ratio: 1; /* Keep the aspect ratio square */
+    margin: 0 auto;
+}
+
+video {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
 }
 
 #author-info {

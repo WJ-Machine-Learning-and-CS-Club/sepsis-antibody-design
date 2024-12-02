@@ -228,8 +228,8 @@
             use: "HTML5",
             j2sPath: "https://chemapps.stolaf.edu/jmol/jsmol/j2s",
             script: "background black;",
-            height: "800",
-            width: "800",
+            height: "100%",
+            width: "100%",
             disableJ2SLoadMonitor: true,
             disableInitialConsole: true,
             allowJavaScript: false
@@ -242,7 +242,9 @@
             };
 
             // Set the HTML for the viewer directly in the specified div
-            document.getElementById(divId).innerHTML = Jmol.getAppletHtml(divId, viewerInfo);
+            const container = document.getElementById(divId);
+            container.style.aspectRatio = "1";
+            container.innerHTML = Jmol.getAppletHtml(divId, viewerInfo);
         }
 
         // Load each viewer with the appropriate PDB file and custom styling
