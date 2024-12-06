@@ -47,6 +47,12 @@ tbody td {
     padding: 20px;
 }
 
+.sequence {    
+    white-space: pre-wrap; 
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+}
+
 h1,
 h2 {
     color: #ffffff;
