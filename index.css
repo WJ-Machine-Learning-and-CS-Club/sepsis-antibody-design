@@ -1,7 +1,3 @@
-* {
-    outline: 1px solid red; /* Highlight all elements for debugging */
-}
-
 
 body {
     background-color: #000;
@@ -46,8 +42,7 @@ tbody td {
 }
 
 .container {
-    /*max-width: 800px;*/
-    max-width: 50%;
+    max-width: 800px;
     margin: 0 auto;
     padding: 20px;
     box-sizing: border-box;
