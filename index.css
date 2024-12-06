@@ -1,3 +1,7 @@
+* {
+    outline: 1px solid red; /* Highlight all elements for debugging */
+}
+
 
 body {
     background-color: #000;
