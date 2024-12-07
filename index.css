@@ -55,6 +55,41 @@ tbody td {
     max-width: 100%;
 }
 
+#works-cited {
+    margin: 0 auto;
+    padding: 0 10px; 
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+#works-cited ol {
+    padding-left: 1.5em; 
+    margin: 0; 
+    list-style: decimal; 
+}
+
+#works-cited li {
+    font-family: Arial, sans-serif;
+    font-size: 0.9em; 
+    line-height: 1.5; 
+    word-wrap: break-word; 
+    overflow-wrap: break-word;
+    margin-bottom: 1em;
+}
+
+#works-cited a {
+    color: #00f; 
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    #works-cited li {
+        font-size: 0.8em; 
+    }
+}
+
 h1,
 h2 {
     color: #ffffff;
