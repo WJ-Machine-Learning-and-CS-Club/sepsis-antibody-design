@@ -72,7 +72,7 @@ tbody td {
 }
 
 #works-cited li {
-    font-family: Arial, sans-serif;
+    font-family: mainFont;
     font-size: 0.9em; 
     line-height: 1.5; 
     word-wrap: break-word; 
